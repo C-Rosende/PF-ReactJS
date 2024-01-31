@@ -1,3 +1,8 @@
+body {
+  background: #f0f0f0; /* Fondo claro */
+  font-family: Arial, sans-serif; /* Fuente genérica */
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,38 +10,66 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ff6347; /* Fondo naranja para la barra de navegación */
+  color: rgb(255, 255, 255); /* Texto blanco para la barra de navegación */
+  padding: 1em 0; /* Espacio alrededor de la barra de navegación */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav a {
+  color: rgb(255, 255, 255); /* Enlaces blancos en la barra de navegación */
+  margin: 0 1em; /* Espacio alrededor de los enlaces */
+  text-decoration: none; /* Sin subrayado en los enlaces */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav a:hover {
+  color: #ffffff; /* Cambia el color del enlace al pasar el ratón por encima */
 }
 
-.card {
-  padding: 2em;
+.products-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Esto permite que los elementos se ajusten a la siguiente línea si no hay suficiente espacio */
 }
 
-.read-the-docs {
-  color: #888;
+.product-card {
+  background: rgb(255, 255, 255); /* Fondo blanco para las tarjetas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra alrededor de las tarjetas */
+  margin: 1em; /* Espacio alrededor de las tarjetas */
+  padding: 2em; /* Espacio dentro de las tarjetas */
+  text-align: left; /* Alineación del texto a la izquierda */
+  width: 200px; /* Ancho de las tarjetas */
+}
+
+.product-card img {
+  width: 100%; /* Las imágenes ocupan todo el ancho de la tarjeta */
+}
+
+.product-card button {
+  background: #ff6347; /* Fondo naranja para los botones */
+  border: none; /* Sin borde en los botones */
+  color: white; /* Texto blanco para los botones */
+  padding: 1em 2em; /* Espacio alrededor del texto del botón */
+  text-transform: uppercase; /* Texto en mayúsculas para los botones */
+}
+
+.product-card button:hover {
+  background: #ee3e20; /* Cambia el color de fondo al pasar el ratón por encima del botón */
+  color: #ff0000; /* Pone el texto en gris oscuro */
+}
+
+.original-price {
+  text-decoration: line-through; /* Tacha el precio original */
+  color: #888; /* Pone el precio original en gris */
+}
+
+.discounted-price {
+  color: red; /* Pone el precio con descuento en rojo */
+  margin-left: 1em; /* Añade espacio entre los precios */
+}
+
+.product-card p {
+  color: #333; /* Pone el texto en gris oscuro */
 }
