@@ -1,16 +1,30 @@
 // ItemDetailContainer.jsx
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-const ItemDetailContainer = () => {
-  const { id } = useParams(); // Esto obtiene el ID del producto de la URL
+const ItemDetailContainer = ({ addToCart }) => {
+  const location = useLocation();
+  const product = location.state ? location.state.product : null;
 
-  // Aquí puedes usar el ID para obtener los detalles del producto de tus datos
+  if (!product) {
+    return <div>No se encontró el producto</div>;
+  }
 
   return (
-    <div>
-      <h1>Detalles del producto {id}</h1>
-      {/* Aquí puedes renderizar los detalles del producto */}
+    <div className="product-detail-container">
+      <div className="product-detail-image">
+        <img src={product.image} alt={product.name} />
+      </div>
+      <div className="product-detail-info">
+        <h1>{product.name}</h1>
+        <p>Color: {product.color}</p>
+        <p>
+          <span className="original-price">{product.originalPrice}</span>
+          <span className="discounted-price">{product.discountedPrice}</span>
+        </p>
+        <p>{product.description}</p>
+        <button onClick={() => addToCart(product)}>Agregar al carrito</button>
+      </div>
     </div>
   );
 };
