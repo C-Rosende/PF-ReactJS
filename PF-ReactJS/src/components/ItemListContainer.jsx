@@ -2,14 +2,9 @@
 import React, { useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import ProductDetail from './ProductDetail';
-import producto1 from '../images/producto1.jpg';
-import producto2 from '../images/producto2.jpg';
-import producto3 from '../images/producto3.jpg';
-import producto4 from '../images/producto4.jpg';
-import producto5 from '../images/producto5.jpg';
-import producto6 from '../images/producto6.jpg';
-import producto7 from '../images/producto7.jpg';
-import producto8 from '../images/producto8.jpg';
+  import { db } from '../firebase';
+import producto1 from '../images/producto1.jpg'
+
 const ItemListContainer = ({ addToCart }) => {
   const { animal, tipoProducto } = useParams();
   const navigate = useNavigate();
