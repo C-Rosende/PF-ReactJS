@@ -1,8 +1,9 @@
 // ProductDetail.jsx
 import { useLocation } from 'react-router-dom';
-import '../App.css'; // Importa el archivo CSS
+import ItemQuantitySelector from './ItemQuantitySelector';
+import '../App.css';
 
-function ProductDetail() {
+function ProductDetail({ addToCart }) {
   const location = useLocation();
   const product = location.state ? location.state.product : null;
 
@@ -21,7 +22,7 @@ function ProductDetail() {
           <span className="discounted-price">{product.discountedPrice}</span>
         </p>
         <p>{product.descripcion}</p>
-        <button>Agregar al carrito</button>
+        <ItemQuantitySelector onQuantityChange={(quantity) => addToCart(product, quantity)} />
       </div>
     </div>
   );

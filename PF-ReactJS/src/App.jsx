@@ -8,6 +8,11 @@ import ProductDetail from './components/ProductDetail';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const categories = [
+    { id: 'perros', name: 'Perros' },
+    { id: 'gatos', name: 'Gatos' },
+    { id: 'reptiles', name: 'Reptiles' },
+  ];
 
   const addToCart = (product) => {
     setCart(prevCart => [...prevCart, product]);
@@ -20,10 +25,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar itemCount={cart.length} cart={cart} removeFromCart={removeFromCart} />
+        <NavBar itemCount={cart.length} cart={cart} removeFromCart={removeFromCart} categories={categories} />
         <Routes>
           <Route path="/" element={<ItemListContainer addToCart={addToCart} />} />
-          <Route path="/categoria-producto/:animal/:tipoProducto?" element={<ItemListContainer addToCart={addToCart} />} />
+          <Route path="/categoria-producto/:categoryId/:tipoProducto?" element={<ItemListContainer addToCart={addToCart} />} />
           <Route path="/item/:id" element={<ProductDetail addToCart={addToCart} />} />
         </Routes>
       </div>

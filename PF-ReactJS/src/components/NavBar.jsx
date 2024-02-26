@@ -3,9 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Cart from './CartWidget';
 
-const Nav = ({ itemCount, cart, removeFromCart }) => {
-  const animals = ['Perros', 'Gatos', 'Reptiles'];
-
+const Nav = ({ itemCount, cart, removeFromCart, categories }) => {
   return (
     <nav className="nav">
       <div className="nav-left">
@@ -13,9 +11,9 @@ const Nav = ({ itemCount, cart, removeFromCart }) => {
       </div>
       <div className="nav-center">
         <ul>
-          {animals.map((animal, index) => (
+          {categories.map((category, index) => (
             <li key={index}>
-              <Link to={`/categoria-producto/${animal.toLowerCase()}`}>{animal}</Link>
+              <Link to={`/categoria-producto/${category.id}`}>{category.name}</Link>
             </li>
           ))}
         </ul>
